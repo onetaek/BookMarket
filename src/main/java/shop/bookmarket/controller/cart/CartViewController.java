@@ -1,7 +1,7 @@
 package shop.bookmarket.controller.cart;
 
 import lombok.extern.slf4j.Slf4j;
-import shop.bookmarket.controller.member.frontcontroller.View;
+import shop.bookmarket.frontcontroller.View;
 import shop.bookmarket.model.dto.CartDto;
 import shop.bookmarket.model.repository.CartRepository;
 

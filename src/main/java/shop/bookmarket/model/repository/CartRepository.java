@@ -1,6 +1,5 @@
 package shop.bookmarket.model.repository;
 
-import jdk.internal.net.http.common.Log;
 import lombok.extern.slf4j.Slf4j;
 import shop.bookmarket.dbconnection.JdbcConnection;
 import shop.bookmarket.model.dto.CartDto;
@@ -143,6 +142,18 @@ public class CartRepository {
             pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, orderNo);
             pstmt.executeQuery();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteByOrderNoAndCartId(String orderNo, Long cartId) {
+        String sql = "delete from `book_market`.`cart` where `id` = ? and `order_no` = ? ";
+        try{
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setLong(1,cartId);
+            pstmt.setString(2,orderNo);
+            pstmt.executeUpdate();
         }catch (Exception e){
             e.printStackTrace();
         }

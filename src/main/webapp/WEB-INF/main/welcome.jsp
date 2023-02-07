@@ -8,20 +8,16 @@
 </head>
 <body>
 <jsp:include page="../layouts/menu.jsp"/>
-<%!
-    String greeting = "제품 웹 쇼핑몰!";
-    String tagline = "Welcome to Web Marekt!";
-%>
 <div class="jumbotron">
     <div class="container text-center">
         <h1 class="display-3">
-            <%=greeting %>
+            ${greeting}
         </h1>
     </div>
 </div>
 <div class="container">
     <div class="text-center">
-        <h3><%=tagline %></h3>
+        <h3>${tagline}</h3>
     </div>
     <hr>
 </div>

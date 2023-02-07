@@ -7,9 +7,9 @@ import java.sql.SQLException;
 public class JdbcConnection {
     public static Connection getConnection() throws ClassNotFoundException, SQLException{
         Connection conn = null;
-        String url ="jdbc:mariadb://localhost:3306/book_market";
+        String url ="jdbc:mariadb://localhost:3310/book_market";
         String user ="root";
-        String password = "dpdlvldzm419!";
+        String password = "7517";
         Class.forName("org.mariadb.jdbc.Driver");
         conn = DriverManager.getConnection(url,user,password);
         return conn;

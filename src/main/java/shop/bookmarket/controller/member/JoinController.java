@@ -2,7 +2,7 @@ package shop.bookmarket.controller.member;
 
 import lombok.extern.slf4j.Slf4j;
 import shop.bookmarket.controller.Controller;
-import shop.bookmarket.controller.member.frontcontroller.View;
+import shop.bookmarket.frontcontroller.View;
 import shop.bookmarket.model.dto.MemberDto;
 import shop.bookmarket.model.repository.MemberRepository;
 import shop.bookmarket.util.Message;

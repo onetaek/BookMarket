@@ -1,7 +1,7 @@
 package shop.bookmarket.controller.member;
 
 import shop.bookmarket.controller.Controller;
-import shop.bookmarket.controller.member.frontcontroller.View;
+import shop.bookmarket.frontcontroller.View;
 import shop.bookmarket.model.dto.MemberDto;
 import shop.bookmarket.model.repository.MemberRepository;
 import shop.bookmarket.util.Error;

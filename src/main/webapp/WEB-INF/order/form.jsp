@@ -46,7 +46,7 @@
         <div class="form-group row">
             <label class="col-sm-2">주문자 이름</label>
             <div class="col-sm-3">
-                <input name="orderName" type="text" class="form-control">
+                <input name="orderName" type="text" class="form-control" value="주문자 이름">
             </div>
         </div>
 
@@ -54,7 +54,7 @@
         <div class="form-group row">
             <label class="col-sm-2">주문자 연락처</label>
             <div class="col-sm-3">
-                <input type="text" name="orderTel" class="form-control">
+                <input type="text" name="orderTel" class="form-control"  value="주문자 연락처">
             </div>
         </div>
 
@@ -62,7 +62,7 @@
         <div class="form-group row">
             <label class="col-sm-2">주문자 이메일</label>
             <div class="col-sm-3">
-                <input type="text" name="orderEmail" class="form-control">
+                <input type="text" name="orderEmail" class="form-control"  value="주문자 이메일">
             </div>
         </div>
 
@@ -70,7 +70,7 @@
         <div class="form-group row">
             <label class="col-sm-2">받는 사람 이름</label>
             <div class="col-sm-3">
-                <input type="text" name="receiveName" class="form-control">
+                <input type="text" name="receiveName" class="form-control"  value="받는 사람 이름">
             </div>
         </div>
 
@@ -78,7 +78,7 @@
         <div class="form-group row">
             <label class="col-sm-2">받는 사람 연락처</label>
             <div class="col-sm-3">
-                <input type="text" name="receiveTel" class="form-control">
+                <input type="text" name="receiveTel" class="form-control"  value="받는 사람 연락처">
             </div>
         </div>
 
@@ -86,7 +86,7 @@
         <div class="form-group row">
             <label class="col-sm-2">받는 사람 주소</label>
             <div class="col-sm-3">
-                <input type="text" name="receiveAddress" class="form-control">
+                <input type="text" name="receiveAddress" class="form-control"  value="받는 사람 주소">
             </div>
         </div>
 

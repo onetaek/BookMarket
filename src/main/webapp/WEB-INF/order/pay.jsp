@@ -38,12 +38,12 @@
         orderId: '${info.orderNo}',
         orderName: '${orderProductName}',
         customerName: '${info.orderName}',
-        successUrl: window.location.origin + "/order/success.do", // 성공시 리턴될  주소
-        failUrl: window.location.origin + "/order/fail.do",  // 실패시 리턴될 주소
+        successUrl: window.location.origin + "/order/success", // 성공시 리턴될  주소
+        failUrl: window.location.origin + "/order/fail",  // 실패시 리턴될 주소
       };
 
-      if (method === '가상계좌') {
-        paymentData.virtualAccountCallbackUrl = window.location.origin + '/order/virtualAccountCallback.do'
+      if (method === '가상계좌') {//입금이 되는 시점에 호출이됨
+        paymentData.virtualAccountCallbackUrl = window.location.origin + '/order/virtualAccountCallback'
       }
 
       tossPayments.requestPayment(method, paymentData);

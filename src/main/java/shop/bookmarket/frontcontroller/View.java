@@ -1,4 +1,4 @@
-package shop.bookmarket.controller.member.frontcontroller;
+package shop.bookmarket.frontcontroller;
 
 import lombok.extern.slf4j.Slf4j;
 

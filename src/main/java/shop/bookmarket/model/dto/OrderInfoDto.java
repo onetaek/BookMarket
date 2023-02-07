@@ -1,11 +1,15 @@
 package shop.bookmarket.model.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class OrderInfoDto {
     private String orderNo;//주문 번호
     private String memberId;//주문자 아이디
@@ -22,8 +26,10 @@ public class OrderInfoDto {
     private String carryNo;//운반 번호
     private String orderStep;//주문 단계
 
-    private Date dateOrder;//주문 일
-    private Date datePay;//입금 일
-    private Date dateCarry;//배송 일
-    private Date dateDone;//배송 완료 일
+    private String dateOrder;//주문 일
+    private String datePay;//입금 일
+    private String dateCarry;//배송 일
+    private String dateDone;//배송 완료 일
+
+
 }

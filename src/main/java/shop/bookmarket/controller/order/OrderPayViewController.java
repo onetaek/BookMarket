@@ -1,9 +1,8 @@
 package shop.bookmarket.controller.order;
 
 import lombok.extern.slf4j.Slf4j;
-import shop.bookmarket.controller.member.frontcontroller.View;
+import shop.bookmarket.frontcontroller.View;
 import shop.bookmarket.model.dto.MemberDto;
-import shop.bookmarket.model.dto.OrderDataDto;
 import shop.bookmarket.model.dto.OrderInfoDto;
 import shop.bookmarket.model.repository.MemberRepository;
 import shop.bookmarket.model.repository.OrderRepository;
@@ -12,10 +11,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
 @Slf4j
-public class OrderPayController implements shop.bookmarket.controller.Controller {
+public class OrderPayViewController implements shop.bookmarket.controller.Controller {
     OrderRepository orderRepository = OrderRepository.getInstance();
     MemberRepository memberRepository = MemberRepository.getInstance();
     @Override

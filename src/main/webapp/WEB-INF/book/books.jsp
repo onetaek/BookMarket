@@ -15,11 +15,11 @@
 <div class="container">
     <div class="row" align="center">
         <c:forEach var="book" items="${books}">
-        <div class="col-md-6">
+        <div class="col-md-6 justify-content-center">
             <img class="my_img" src="#" style="width:300px";/>
-            <h3 class="text-left"><a href="/book?id=${book.id}">${book.category} ${book.name}</a></h3>
-            <p class="text-left">${book.description}</p>
-            <p class="text-left">${book.author} | ${book.publisher} | ${book.unitPrice}</p>
+            <h3 class="text-left text-center"><a href="/book?id=${book.id}">${book.category} ${book.name}</a></h3>
+            <p class="text-left text-center">${book.description}</p>
+            <p class="text-left text-center">${book.author} | ${book.publisher} | ${book.unitPrice}</p>
             <p><a href="/book?id=${book.id}"
                   class="btn btn-secondary" role="button"> 상세 정보 &raquo;</a></p>
         </div>

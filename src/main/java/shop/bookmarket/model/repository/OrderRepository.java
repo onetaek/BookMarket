@@ -29,7 +29,7 @@ public class OrderRepository {
         }
     }
 
-    public List<OrderDataDto> findAllByOrderNo(String orderNo) {
+    public List<OrderDataDto> findAllOrderDataByOrderNo(String orderNo) {
         List<OrderDataDto> dtos = new ArrayList<>();
         String sql = "select * from `book_market`.order_data where order_no = ?";
         try{
@@ -55,11 +55,11 @@ public class OrderRepository {
         return dtos;
     }
 
-    public void deleteByOrderNo(String orderNo) {
+    public void deleteOrderInfoByOrderNo(String orderNo) {
         String sql = "delete from `book_market`.order_info where order_no = ?";
         try{
             pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1,orderNo);
+            pstmt.setString(1, orderNo);
             pstmt.executeUpdate();
         }catch (Exception e){
             e.printStackTrace();
@@ -101,16 +101,7 @@ public class OrderRepository {
     }
 
 
-    public void deleteOrderInfoByOrderNo(String orderNo) {
-        String sql = "delete from `book_market`.order_info where order_no = ?";
-        try{
-            pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, orderNo);
-            pstmt.executeUpdate();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
+
 
     public void saveOrderInfo(OrderInfoDto order) {
         //중복 제거 삭제가 싫을 경우 읽어온 값이 존재하면 update아니면 그냥 insert로 쿼리 작성 가능하다.
@@ -121,6 +112,9 @@ public class OrderRepository {
                 " values (?,?,?,?,?," +
                 "?,?,?,?,?," +
                 "?,?, now(),?,?,?)";
+        String sql2 = "INSERT INTO `book_market`.`order_info` VALUES (?, ?, ?, ?, ? " +
+                "?, ?, ?, ?, ? " +
+                "?, ?, now(), ?, ?, ?)";
         try{
             pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, order.getOrderNo());
@@ -135,9 +129,9 @@ public class OrderRepository {
             pstmt.setString(10, order.getPayMethod());
             pstmt.setString(11, order.getCarryNo());
             pstmt.setString(12, "orderFail");
-            pstmt.setDate(13, (Date) order.getDatePay());
-            pstmt.setDate(14, (Date) order.getDateCarry());
-            pstmt.setDate(15, (Date) order.getDateDone());
+            pstmt.setString(13, order.getDatePay());
+            pstmt.setString(14, order.getDateCarry());
+            pstmt.setString(15, order.getDateDone());
             pstmt.executeQuery();
         }catch (Exception e){
             e.printStackTrace();
@@ -189,10 +183,10 @@ public class OrderRepository {
                         .payMethod(rs.getString("pay_method"))
                         .carryNo(rs.getString("carry_no"))
                         .orderStep(rs.getString("order_step"))
-                        .dateOrder(rs.getDate("date_order"))
-                        .datePay(rs.getDate("date_pay"))
-                        .dateCarry(rs.getDate("date_carry"))
-                        .dateDone(rs.getDate("date_done"))
+                        .dateOrder(rs.getString("date_order"))
+                        .datePay(rs.getString("date_pay"))
+                        .dateCarry(rs.getString("date_carry"))
+                        .dateDone(rs.getString("date_done"))
                         .build();
             }
         }catch (Exception e){
@@ -200,4 +194,20 @@ public class OrderRepository {
         }
         return dto;
     }
+
+
+    public void updateMethodOrderStopOrderNoByOrderNo(OrderInfoDto dto) {
+        String sql = "update `book_market`.`order_info` set pay_method = ?, " +
+                "order_step = ?, date_pay = now() where order_no = ?";
+        try{
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1,dto.getPayMethod());
+            pstmt.setString(2,dto.getOrderStep());
+            pstmt.setString(3,dto.getOrderNo());
+            pstmt.executeUpdate();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
 }

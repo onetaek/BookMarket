@@ -1,6 +1,6 @@
 package shop.bookmarket.controller.cart;
 
-import shop.bookmarket.controller.member.frontcontroller.View;
+import shop.bookmarket.frontcontroller.View;
 import shop.bookmarket.model.repository.CartRepository;
 
 import javax.servlet.ServletException;

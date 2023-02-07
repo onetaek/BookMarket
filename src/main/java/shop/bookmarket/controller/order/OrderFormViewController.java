@@ -1,7 +1,7 @@
 package shop.bookmarket.controller.order;
 
 import lombok.extern.slf4j.Slf4j;
-import shop.bookmarket.controller.member.frontcontroller.View;
+import shop.bookmarket.frontcontroller.View;
 import shop.bookmarket.model.dto.*;
 import shop.bookmarket.model.repository.BookRepository;
 import shop.bookmarket.model.repository.CartRepository;
@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 @Slf4j
-public class OrderViewController implements shop.bookmarket.controller.Controller {
+public class OrderFormViewController implements shop.bookmarket.controller.Controller {
     OrderRepository orderRepository = OrderRepository.getInstance();
     CartRepository cartRepository = CartRepository.getInstance();
     MemberRepository memberRepository = MemberRepository.getInstance();
@@ -30,7 +30,7 @@ public class OrderViewController implements shop.bookmarket.controller.Controlle
 
         //1. 중복을 막기 위해 주문 번호로 저장된 데이터 삭제
         log.info("orderRepository.deleteByOrderNo(orderNo)");
-        orderRepository.deleteByOrderNo(orderNo);
+        orderRepository.deleteOrderInfoByOrderNo(orderNo);
 
         //2. 주문번호 기준을 장바구니에 있는 상품을 가지고 옴
         log.info("List<CartDto> carts = cartRepository.findByOrderNo(orderNo)");
@@ -62,7 +62,7 @@ public class OrderViewController implements shop.bookmarket.controller.Controlle
         }
 
         log.info("orderRepository.getTotalPriceByOrderNo(orderNo)");
-        List<OrderDataDto> datas = orderRepository.findAllByOrderNo(orderNo);
+        List<OrderDataDto> datas = orderRepository.findAllOrderDataByOrderNo(orderNo);
         int totalPrice = orderRepository.getTotalPriceByOrderNo(orderNo);
 
 

@@ -1,5 +1,6 @@
-package shop.bookmarket.controller.member.frontcontroller;
+package shop.bookmarket.frontcontroller;
 
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import shop.bookmarket.controller.Controller;
 import shop.bookmarket.controller.book.BookAddController;
@@ -18,8 +19,7 @@ import shop.bookmarket.controller.member.LoginController;
 import shop.bookmarket.controller.member.LoginViewController;
 import shop.bookmarket.controller.main.WelcomeController;
 import shop.bookmarket.controller.member.resultMemberViewController;
-import shop.bookmarket.controller.order.OrderPayController;
-import shop.bookmarket.controller.order.OrderViewController;
+import shop.bookmarket.controller.order.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -47,8 +47,10 @@ public class FrontController extends HttpServlet {
         getMapping.put("/book",new BookViewController());//하나의 책 리스트 출력 페이지 이동
         getMapping.put("/book/add",new BookAddViewController());//책 등록 페이지 이동
         getMapping.put("/cart", new CartViewController());//장바구니로 이동
-        getMapping.put("/order",new OrderViewController());//주문서 페이지 출력-> 수업 form.do
-
+        getMapping.put("/order",new OrderFormViewController());//주문서 페이지 출력-> 수업 form.do
+        getMapping.put("/order/success",new OrderSuccessController());
+        getMapping.put("/order/fail",new OrderFailController());
+        getMapping.put("/order/done",new OrderDoneController());
         //POST
         postMapping.put("/member/login", new LoginController());//로그인 처리
         postMapping.put("/member/join",new JoinController());//회원가입 처리
@@ -56,9 +58,10 @@ public class FrontController extends HttpServlet {
         postMapping.put("/cart/add",new CartAddController());//장바구니 추가 처리
         postMapping.put("/cart/delete",new CartDeleteController());//장바구니 한 항목 제거
         postMapping.put("/cart/deleteAll",new CartDeleteAllController());//장바구니 전체 제거
-        postMapping.put("/order/pay",new OrderPayController());//주문서 정보 저장 및 결제 수단 출력 -> 수업 pay.do
+        postMapping.put("/order/pay",new OrderPayViewController());//주문서 정보 저장 및 결제 수단 출력 -> 수업 pay.do
     }
 
+    @SneakyThrows
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");

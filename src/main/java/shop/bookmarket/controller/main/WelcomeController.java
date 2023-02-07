@@ -1,7 +1,7 @@
 package shop.bookmarket.controller.main;
 
 import shop.bookmarket.controller.Controller;
-import shop.bookmarket.controller.member.frontcontroller.View;
+import shop.bookmarket.frontcontroller.View;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
